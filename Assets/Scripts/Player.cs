@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //config perams
     [SerializeField] float moveSpeed = 15f;
     [SerializeField] float padding = 0.5f;
+    [SerializeField] GameObject playerLaser;
+    [SerializeField] float laserSpeed = 20f;
 
     float xMin;
     float xMax;
     float yMin;
     float yMax;
+
+    
     
     /*[SerializeField] float screenWidth = 10;
     [SerializeField] float minX;
@@ -34,6 +39,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        Fire();
+    }
+
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity) as GameObject;
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+        }
     }
 
     private void SetUpMoveBoundaries()
