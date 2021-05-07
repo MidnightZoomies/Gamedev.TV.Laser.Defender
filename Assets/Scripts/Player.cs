@@ -10,19 +10,17 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 0.5f;
     [SerializeField] GameObject playerLaser;
     [SerializeField] float laserSpeed = 20f;
+    [SerializeField] float projectileFiringPeriod = 0.1f;
+
+    Coroutine firingCoroutine;
+    bool firingToggle = false;
 
     float xMin;
     float xMax;
     float yMin;
     float yMax;
 
-    
-    
-    /*[SerializeField] float screenWidth = 10;
-    [SerializeField] float minX;
-    [SerializeField] float maxX;
-
-    private Vector3 mousePosition;
+    /*private Vector3 mousePosition;
     private Rigidbody2D rb;
     private Vector2 direction;
     [SerializeField] private float moveSpeed = 100f;
@@ -44,10 +42,25 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !firingToggle)
         {
-            GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity) as GameObject;
+            firingCoroutine = StartCoroutine(FireContinuously());
+            firingToggle = true;
+        }
+        if (Input.GetButtonUp("Fire1") && !Input.GetButton("Fire1"))
+        {
+            StopCoroutine(firingCoroutine);
+            firingToggle = false;
+        }
+    }
+
+    IEnumerator FireContinuously()
+    {
+        while (true)
+        {
+            GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+            yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
 
@@ -65,13 +78,6 @@ public class Player : MonoBehaviour
         /*mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - transform.position).normalized;
         rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);*/
-
-        /* Cant seem to get this to work right
-        float mousePos = Input.mousePosition.x / Screen.width * screenWidth; //the current position of the mouse in relation to the screenwidth
-        Vector2 playerPos = new Vector2(transform.position.x, transform.position.y); //creating vector2 with current object location
-        playerPos.x = Mathf.Clamp(mousePos, minX, maxX); //prevents paddle from going off the screen on the x-axis;
-        transform.position = playerPos; //changing transform with vector2
-        */
 
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
