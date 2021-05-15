@@ -11,5 +11,9 @@ public class PlayerLaser : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 }
