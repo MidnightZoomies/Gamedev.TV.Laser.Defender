@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TrashCollector
   - Enemy
+  - PlayerLaser
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX

@@ -6,8 +6,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //config perams
+    [Header("Health")]
+    [SerializeField] float playerHealth = 500f;
+
+    [Header("Movement")]
     [SerializeField] float moveSpeed = 15f;
     [SerializeField] float padding = 0.5f;
+
+    [Header("Laser")]
     [SerializeField] GameObject playerLaser;
     [SerializeField] float laserSpeed = 20f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
@@ -84,5 +90,24 @@ public class Player : MonoBehaviour
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         transform.position = new Vector2(newXPos, newYPos);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "EnemyLaser")
+        {
+            DamageManager damageManager = other.gameObject.GetComponent<DamageManager>();
+            if (!damageManager) {return;} //if damageManager is null, does not progress.
+            ProcessHit(damageManager);
+        }
+    }
+    private void ProcessHit(DamageManager damageManager)
+    {
+        playerHealth -= damageManager.GetDamage();
+        damageManager.Hit();
+        if (playerHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

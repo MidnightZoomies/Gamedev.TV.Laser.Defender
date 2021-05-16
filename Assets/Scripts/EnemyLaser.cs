@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLaser : MonoBehaviour
+public class EnemyLaser : MonoBehaviour
 {
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "TrashCollector")
         {
             Destroy(gameObject);
         }
-        /*else if (collision.tag == "Enemy")
+        /*else if (collision.tag == "Player")
         {
             Destroy(gameObject);
         }*/

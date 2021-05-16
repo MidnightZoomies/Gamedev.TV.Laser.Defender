@@ -125,3 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  enemyLaser: {fileID: 8598264013166933430, guid: 1eb9fc56c73cc6f41a534536d0dfdbbc,
+    type: 3}
+  laserSpeed: 5
+  shotCounter: 0
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 3
