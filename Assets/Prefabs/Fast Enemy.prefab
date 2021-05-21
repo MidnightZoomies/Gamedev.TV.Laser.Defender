@@ -131,3 +131,10 @@ MonoBehaviour:
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
+  explosionFX: {fileID: 5542584858379185628, guid: 53a6f65046ca1164d9d71f33492b3450,
+    type: 3}
+  explosionDuration: 1
+  deathSFX: {fileID: 8300000, guid: be4b4f38273c47d4184e000361ba844f, type: 3}
+  deathSFXVolume: 0.7
+  shootSound: {fileID: 8300000, guid: 65bf8b5bfe73c9e48847b6caec10eb40, type: 3}
+  shootSoundVolume: 0.4
