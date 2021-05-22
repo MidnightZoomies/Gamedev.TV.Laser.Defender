@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7128532776365180381}
   - component: {fileID: 6745976973344892973}
   - component: {fileID: 5516400705565850898}
+  - component: {fileID: 5650425635746347351}
+  - component: {fileID: -2849446726573670563}
   m_Layer: 0
   m_Name: Slow Enemy
   m_TagString: Enemy
@@ -94,7 +96,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -134,7 +136,37 @@ MonoBehaviour:
   explosionFX: {fileID: 5542584858379185628, guid: 53a6f65046ca1164d9d71f33492b3450,
     type: 3}
   explosionDuration: 1
-  deathSFX: {fileID: 8300000, guid: be4b4f38273c47d4184e000361ba844f, type: 3}
-  deathSFXVolume: 0.7
-  shootSound: {fileID: 8300000, guid: 65bf8b5bfe73c9e48847b6caec10eb40, type: 3}
-  shootSoundVolume: 0.25
+--- !u!50 &5650425635746347351
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903564125814450950}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-2849446726573670563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903564125814450950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1693ec550a6f5774c852ecf650ed3e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100

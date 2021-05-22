@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1140061985567643437}
   - component: {fileID: 1140061985567643439}
   - component: {fileID: -7931943252644730819}
+  - component: {fileID: 7716590468713986378}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,10 +103,9 @@ MonoBehaviour:
     type: 3}
   laserSpeed: 20
   projectileFiringPeriod: 0.1
-  deathSFX: {fileID: 8300000, guid: 69aeccfcba537d647a421308e0ff012d, type: 3}
-  deathSFXVolume: 0.7
-  shootSound: {fileID: 8300000, guid: e1044a97bad709e429503349bdaff9d2, type: 3}
-  shootSoundVolume: 0.15
+  explosionFX: {fileID: 5542584858379185628, guid: 53a6f65046ca1164d9d71f33492b3450,
+    type: 3}
+  explosionDuration: 1
 --- !u!58 &-7931943252644730819
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -122,3 +122,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.11526442
+--- !u!114 &7716590468713986378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140061985567643436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1693ec550a6f5774c852ecf650ed3e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100

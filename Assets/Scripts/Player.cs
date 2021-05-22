@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     [SerializeField] float laserSpeed = 20f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
 
+    [Header ("Player Death")]
+    [SerializeField] GameObject explosionFX;
+    [SerializeField] float explosionDuration = 1f;
+
     SoundController soundController;
 
     Coroutine firingCoroutine;
@@ -97,17 +101,21 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "EnemyLaser")
+        if (other.tag == "EnemyLaser" || other.tag == "Enemy")
         {
             DamageManager damageManager = other.gameObject.GetComponent<DamageManager>();
             if (!damageManager) {return;} //if damageManager is null, does not progress.
             ProcessHit(damageManager);
         }
     }
+
     private void ProcessHit(DamageManager damageManager)
     {
         playerHealth -= damageManager.GetDamage();
-        damageManager.Hit();
+        if (damageManager.tag == "EnemyLaser")
+        {
+            damageManager.Hit();
+        }
         if (playerHealth <= 0)
         {
             PlayerDeath();
@@ -116,7 +124,10 @@ public class Player : MonoBehaviour
 
     private void PlayerDeath()
     {
+        FindObjectOfType<Level>().LoadGameOver();
         Destroy(gameObject);
+        GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
+        Destroy(explosion, explosionDuration);
         soundController.PlayerDeath();
     }
 }

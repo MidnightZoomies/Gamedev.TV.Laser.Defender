@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "PlayerLaser")
+        if (other.tag == "PlayerLaser" || other.tag == "Player")
         {
             DamageManager damageManager = other.gameObject.GetComponent<DamageManager>();
             if (!damageManager) { return; } //if damageManager is null, does not progress.
@@ -54,7 +54,10 @@ public class Enemy : MonoBehaviour
     private void ProcessHit(DamageManager damageManager)
     {
         health -= damageManager.GetDamage();
-        damageManager.Hit();
+        if (damageManager.tag == "PlayerLaser")
+        {
+            damageManager.Hit();
+        }
         if (health <= 0)
         {
             EnemyDeath();
