@@ -13,6 +13,23 @@ public class SoundController : MonoBehaviour
     [SerializeField] AudioClip playerShootSound;
     [SerializeField] [Range(0, 1)] float playerShootSoundVolume = 0.25f;
 
+    void Awake()
+    {
+        SetUpSingleton();
+    }
+
+    void SetUpSingleton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     public void EnemyShot()
     {
         AudioSource.PlayClipAtPoint(enemyShootSound, Camera.main.transform.position, enemyShootSoundVolume);
