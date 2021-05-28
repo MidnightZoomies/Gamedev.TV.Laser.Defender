@@ -13,10 +13,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject explosionFX;
     [SerializeField] float explosionDuration = 1f;
     SoundController soundController;
+    GameSession gameSession;
 
     void Start()
     {
         soundController = FindObjectOfType<SoundController>();
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame
@@ -67,6 +69,8 @@ public class Enemy : MonoBehaviour
 
     private void EnemyDeath()
     {
+        // Add different scores per enemy w/name?
+        gameSession.AddToScore(100);
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);

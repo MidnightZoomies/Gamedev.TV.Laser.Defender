@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class Level : MonoBehaviour
 {
     float gameOverDelay = 3f;
+    GameSession gameSession;
+
+    private void Start()
+    {
+        gameSession = FindObjectOfType<GameSession>();
+    }
     public void LoadStartMenu()
     {
         SceneManager.LoadScene(0);
@@ -13,6 +19,7 @@ public class Level : MonoBehaviour
 
     public void LoadGame()
     {
+        gameSession.ResetGame();
         SceneManager.LoadScene(1);
     }
 
