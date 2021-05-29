@@ -5,15 +5,23 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float health = 100;
+    SoundController soundController;
+
+    [Header("Enemy Laser")]
     [SerializeField] GameObject enemyLaser;
     [SerializeField] float laserSpeed = -20f;
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
+
+    [Header("Ship Explosion")]
     [SerializeField] GameObject explosionFX;
     [SerializeField] float explosionDuration = 1f;
-    SoundController soundController;
+
+    [Header("Game Score")]
     GameSession gameSession;
+    [SerializeField] int fastEnemyScore = 100;
+    [SerializeField] int slowEnemyScore = 50;
 
     void Start()
     {
@@ -69,8 +77,23 @@ public class Enemy : MonoBehaviour
 
     private void EnemyDeath()
     {
-        // Add different scores per enemy w/name?
-        gameSession.AddToScore(100);
+        AddToScoreOnDeath();
+        EnemyDeathEffects();
+    }
+
+    private void AddToScoreOnDeath()
+    {
+        if (gameObject.name == "Fast Enemy(Clone)")
+        {
+            gameSession.AddToScore(fastEnemyScore);
+        }
+        else if (gameObject.name == "Slow Enemy(Clone)")
+        {
+            gameSession.AddToScore(slowEnemyScore);
+        }
+    }
+    private void EnemyDeathEffects()
+    {
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);

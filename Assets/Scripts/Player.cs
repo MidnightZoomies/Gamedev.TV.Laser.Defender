@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     //config perams
     [Header("Health")]
-    [SerializeField] float playerHealth = 500f;
+    [SerializeField] int playerHealth = 500;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed = 15f;
@@ -129,5 +129,10 @@ public class Player : MonoBehaviour
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);
         soundController.PlayerDeath();
+    }
+
+    public int UpdatePlayerHealth()
+    {
+        return playerHealth;
     }
 }

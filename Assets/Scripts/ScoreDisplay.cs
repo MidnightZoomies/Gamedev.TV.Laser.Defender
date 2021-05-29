@@ -8,7 +8,7 @@ public class ScoreDisplay : MonoBehaviour
 {
     TMP_Text scoreText;
     GameSession gameSession;
-    int currentScore;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,6 @@ public class ScoreDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int currentScore = gameSession.GetScore();
-        scoreText.text = currentScore.ToString();
+        scoreText.text = gameSession.GetScore().ToString(); //Text component getting int score and converting to string
     }
 }
