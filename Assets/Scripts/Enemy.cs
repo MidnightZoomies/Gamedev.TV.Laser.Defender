@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Laser")]
     [SerializeField] GameObject enemyLaser;
     [SerializeField] float laserSpeed = -20f;
-    [SerializeField] float shotCounter;
+    float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
 
@@ -20,8 +20,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Game Score")]
     GameSession gameSession;
-    [SerializeField] int fastEnemyScore = 100;
-    [SerializeField] int slowEnemyScore = 50;
+    [SerializeField] int enemyScore = 100;
 
     void Start()
     {
@@ -77,11 +76,11 @@ public class Enemy : MonoBehaviour
 
     private void EnemyDeath()
     {
-        AddToScoreOnDeath();
+        gameSession.AddToScore(enemyScore);
         EnemyDeathEffects();
     }
 
-    private void AddToScoreOnDeath()
+    /*private void AddToScoreOnDeath()
     {
         if (gameObject.name == "Fast Enemy(Clone)")
         {
@@ -91,7 +90,8 @@ public class Enemy : MonoBehaviour
         {
             gameSession.AddToScore(slowEnemyScore);
         }
-    }
+    }*/
+
     private void EnemyDeathEffects()
     {
         Destroy(gameObject);

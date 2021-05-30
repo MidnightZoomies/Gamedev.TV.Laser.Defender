@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4903564125814450948}
   - component: {fileID: 4903564125814450951}
-  - component: {fileID: 7128532776365180381}
+  - component: {fileID: 3415050446696748275}
   - component: {fileID: 6745976973344892973}
-  - component: {fileID: 5516400705565850898}
-  - component: {fileID: 5650425635746347351}
-  - component: {fileID: -2849446726573670563}
+  - component: {fileID: -2618022290787811645}
+  - component: {fileID: -7685598460139538466}
+  - component: {fileID: -2660032340325208763}
   m_Layer: 0
-  m_Name: Slow Enemy
+  m_Name: Bomber Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4903564125814450950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da287a6fa5c041246926dc42765cecc4, type: 3}
-  m_Color: {r: 0.17074676, g: 0.49056602, b: 0.034709856, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 105917daca66d39449e07b13ebb4598c, type: 3}
+  m_Color: {r: 0.626447, g: 0.6431373, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7128532776365180381
+--- !u!58 &3415050446696748275
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,7 +101,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.36944258
+  m_Radius: 0.4026119
 --- !u!114 &6745976973344892973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6f5a070e4c98d4abb3c151bbf45529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5516400705565850898
+--- !u!114 &-2618022290787811645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,18 +126,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb54acb216f5454fbaa0c8d1f95c3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  enemyLaser: {fileID: 8598264013166933430, guid: 1eb9fc56c73cc6f41a534536d0dfdbbc,
+  health: 500
+  enemyLaser: {fileID: 8598264013166933430, guid: 0fb3cbf793711e14b87b900e10c24dd6,
     type: 3}
   laserSpeed: 5
-  shotCounter: 0
-  minTimeBetweenShots: 0.2
+  minTimeBetweenShots: 2
   maxTimeBetweenShots: 3
   explosionFX: {fileID: 5542584858379185628, guid: 53a6f65046ca1164d9d71f33492b3450,
     type: 3}
   explosionDuration: 1
-  enemyScore: 50
---- !u!50 &5650425635746347351
+  enemyScore: 300
+--- !u!50 &-7685598460139538466
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -158,7 +157,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2849446726573670563
+--- !u!114 &-2660032340325208763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
