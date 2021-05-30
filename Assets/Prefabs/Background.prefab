@@ -92,4 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f0f7289d71c6940a0a382768f0ed2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundScrollSpeed: 0.5
+  backgroundScrollSpeedY: 0.03
+  asteroidPrefab: {fileID: 1401110776356768792, guid: 72bab5b45175cd14ea3724765ac00336,
+    type: 3}
+  asteroidSpawnMin: 5
+  asteroidSpawnMax: 10

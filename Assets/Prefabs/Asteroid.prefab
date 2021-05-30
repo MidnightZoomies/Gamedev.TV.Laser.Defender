@@ -97,8 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
-  spinSpeedMin: 5
+  spinSpeedMin: -60
   spinSpeedMax: 60
+  explosionFX: {fileID: 5542584858379185628, guid: 53a6f65046ca1164d9d71f33492b3450,
+    type: 3}
+  explosionDuration: 1
 --- !u!50 &1401110776356768793
 Rigidbody2D:
   serializedVersion: 4
