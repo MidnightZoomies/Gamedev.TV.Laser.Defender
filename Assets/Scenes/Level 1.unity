@@ -1237,6 +1237,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4150888655776955614, guid: 8a430f2747e0cde4bb8965de208ec506,
         type: 3}
+      propertyPath: asteroid
+      value: 
+      objectReference: {fileID: 1401110776356768792, guid: 72bab5b45175cd14ea3724765ac00336,
+        type: 3}
+    - target: {fileID: 4150888655776955614, guid: 8a430f2747e0cde4bb8965de208ec506,
+        type: 3}
+      propertyPath: asteroidSpawnMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150888655776955614, guid: 8a430f2747e0cde4bb8965de208ec506,
+        type: 3}
+      propertyPath: asteroidSpawnMin
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150888655776955614, guid: 8a430f2747e0cde4bb8965de208ec506,
+        type: 3}
       propertyPath: backgroundScrollSpeed
       value: 0.03
       objectReference: {fileID: 0}
