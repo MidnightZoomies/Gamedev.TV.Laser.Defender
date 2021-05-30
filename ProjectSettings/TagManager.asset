@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerLaser
   - EnemyLaser
+  - Asteroid
   layers:
   - Default
   - TransparentFX

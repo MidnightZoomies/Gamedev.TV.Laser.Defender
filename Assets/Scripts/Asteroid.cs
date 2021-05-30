@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] float spinSpeedMin = 15f;
     [SerializeField] float spinSpeedMax = 45f;
     float speedOfSpin = 180f;
-    int asteroidHealth = 1000;
+    [SerializeField] int asteroidHealth = 1000;
     Rigidbody2D asteroid;
     DamageManager damageManager;
     [SerializeField] GameObject explosionFX;
@@ -62,6 +62,6 @@ public class Asteroid : MonoBehaviour
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);
-        soundController.EnemyDeath();
+        soundController.AsteroidDestruction();
     }
 }

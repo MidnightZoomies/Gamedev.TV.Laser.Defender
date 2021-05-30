@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8661973712880381920}
   m_Layer: 0
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,9 +99,10 @@ MonoBehaviour:
   movementSpeed: 1
   spinSpeedMin: -60
   spinSpeedMax: 60
-  explosionFX: {fileID: 5542584858379185628, guid: 53a6f65046ca1164d9d71f33492b3450,
+  asteroidHealth: 3000
+  explosionFX: {fileID: 7595860655956717278, guid: 3ca737cc851bff3489f6fad2a9d420c0,
     type: 3}
-  explosionDuration: 1
+  explosionDuration: 3
 --- !u!50 &1401110776356768793
 Rigidbody2D:
   serializedVersion: 4
@@ -133,7 +134,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

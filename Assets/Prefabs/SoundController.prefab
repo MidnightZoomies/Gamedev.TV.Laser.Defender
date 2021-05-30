@@ -52,6 +52,9 @@ MonoBehaviour:
   playerDeathSFXVolume: 0.7
   playerShootSound: {fileID: 8300000, guid: e1044a97bad709e429503349bdaff9d2, type: 3}
   playerShootSoundVolume: 0.15
+  asteroidDestructionSFX: {fileID: 8300000, guid: 70f6fbff354fdd44486858ddce1a179f,
+    type: 3}
+  asteroidDestructionSFXVolume: 0.25
 --- !u!82 &731610641
 AudioSource:
   m_ObjectHideFlags: 0
