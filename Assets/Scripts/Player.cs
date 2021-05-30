@@ -107,10 +107,10 @@ public class Player : MonoBehaviour
             if (!damageManager) {return;} //if damageManager is null, does not progress.
             ProcessHit(damageManager);
         }
-        /*else if (other.tag == "Asteroid")
+        else if (other.tag == "Asteroid")
         {
             PlayerDeath();
-        }*/
+        }
     }
 
     private void ProcessHit(DamageManager damageManager)

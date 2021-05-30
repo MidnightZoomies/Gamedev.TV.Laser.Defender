@@ -9,7 +9,8 @@ public class GameSession : MonoBehaviour
     {
         SetUpSingleton();
     }
-    private void SetUpSingleton()
+    
+    /*private void SetUpSingleton()
     {
         int numberDisplayControllers = FindObjectsOfType<GameSession>().Length;
         if (numberDisplayControllers > 1)
@@ -20,9 +21,21 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }*/
+
+    void SetUpSingleton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    public int GetScore()
+        public int GetScore()
     {
         return score;
     }
