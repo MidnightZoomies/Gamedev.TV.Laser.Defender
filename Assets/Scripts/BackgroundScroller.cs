@@ -8,7 +8,7 @@ public class BackgroundScroller : MonoBehaviour
     //[SerializeField] float backgroundScrollSpeedX = 0.01f; Need a vertical and horizontal looping background
     Material myMaterial;
     Vector2 offset;
-    [SerializeField] GameObject asteroidPrefab;
+    [SerializeField] List<GameObject> asteroidPrefab;
     [SerializeField] float asteroidSpawnMin = 1f;
     [SerializeField] float asteroidSpawnMax = 3f;
     float asteroidSpawnTime;
@@ -16,6 +16,7 @@ public class BackgroundScroller : MonoBehaviour
     float asteroidXMax = 5.5f;
     float asteroidXLocation;
     Vector2 asteroidVector;
+    int asteroidRandomType;
 
     void Start()
     {
@@ -38,8 +39,9 @@ public class BackgroundScroller : MonoBehaviour
     void SpawnAsteroids()
     {
         asteroidSpawnTime = Random.Range(asteroidSpawnMin, asteroidSpawnMax);
+        asteroidRandomType = Random.Range(0, 2);
         asteroidXLocation = Random.Range(asteroidXMin, asteroidXMax);
         asteroidVector = new Vector2(asteroidXLocation, 11.5f);
-        Instantiate(asteroidPrefab, asteroidVector, Quaternion.identity);
+        Instantiate(asteroidPrefab[asteroidRandomType], asteroidVector, Quaternion.identity);
     }
 }
