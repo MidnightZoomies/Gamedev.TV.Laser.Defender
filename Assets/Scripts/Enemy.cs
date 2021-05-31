@@ -52,11 +52,15 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "PlayerLaser" || other.tag == "Player")
+        if (other.tag == "PlayerLaser")
         {
             DamageManager damageManager = other.gameObject.GetComponent<DamageManager>();
             if (!damageManager) { return; } //if damageManager is null, does not progress.
             ProcessHit(damageManager);
+        }
+        else if (other.tag == "Player")
+        {
+            EnemyDeath();
         }
     }
 
