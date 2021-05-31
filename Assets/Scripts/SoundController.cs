@@ -24,6 +24,7 @@ public class SoundController : MonoBehaviour
     {
         if (FindObjectsOfType(GetType()).Length > 1)
         {
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else

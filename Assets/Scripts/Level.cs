@@ -10,7 +10,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        gameSession = FindObjectOfType<GameSession>();
+
     }
     public void LoadStartMenu()
     {
@@ -19,6 +19,7 @@ public class Level : MonoBehaviour
 
     public void LoadGame()
     {
+        gameSession = FindObjectOfType<GameSession>();
         gameSession.ResetGame();
         SceneManager.LoadScene(1);
     }
