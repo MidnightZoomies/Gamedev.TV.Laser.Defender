@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
             if (!damageManager) { return; } //if damageManager is null, does not progress.
             ProcessHit(damageManager);
         }
-        else if (other.tag == "Player")
+        else if (other.tag == "Player" || other.tag == "Shield")
         {
             EnemyDeath();
         }
@@ -83,18 +83,6 @@ public class Enemy : MonoBehaviour
         gameSession.AddToScore(enemyScore);
         EnemyDeathEffects();
     }
-
-    /*private void AddToScoreOnDeath()
-    {
-        if (gameObject.name == "Fast Enemy(Clone)")
-        {
-            gameSession.AddToScore(fastEnemyScore);
-        }
-        else if (gameObject.name == "Slow Enemy(Clone)")
-        {
-            gameSession.AddToScore(slowEnemyScore);
-        }
-    }*/
 
     private void EnemyDeathEffects()
     {
