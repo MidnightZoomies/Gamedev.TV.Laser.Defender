@@ -26,6 +26,7 @@ public class Shield : MonoBehaviour
         damageManager = FindObjectOfType<DamageManager>();
         //powerUpController = FindObjectOfType<PowerUpController>();
         shieldColor = gameObject.GetComponent<SpriteRenderer>();
+        
     }
 
     void Update()
@@ -64,19 +65,18 @@ public class Shield : MonoBehaviour
 
     void ShieldDamage()
     {
-        /*if (shieldHealth >= 1001 && shieldHealth <= 2000) //Shield colors based on health
+        if (shieldHealth >= 1001 && shieldHealth <= 2000) //Shield colors based on health
         {
-            shieldColor.color = Color.blue;
+            shieldColor.color = new Color(1, 1, 1, 0.50f);
         }
-        else if (shieldHealth >= 1 && shieldHealth >= 1000)
+        else if (shieldHealth >= 1 && shieldHealth <= 1000)
         {
-            shieldColor.color = Color.blue;
-        }*/
+            shieldColor.color = new Color(1, 1, 1, 0.25f);
+        }
         if (shieldHealth <= 0)
         {
             DestroyShield();
         }
-        //shieldColor.color = new Color (Red, Green, Blue, Alpha);
     }
 
     /*public void RechargeShield()
