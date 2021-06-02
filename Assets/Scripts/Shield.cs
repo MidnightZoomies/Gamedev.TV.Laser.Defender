@@ -18,13 +18,13 @@ public class Shield : MonoBehaviour
     //References
     Player player;
     DamageManager damageManager;
-    //PowerUpController powerUpController;
+    PowerUpController powerUpController;
 
     void Start()
     {
         player = FindObjectOfType<Player>();
         damageManager = FindObjectOfType<DamageManager>();
-        //powerUpController = FindObjectOfType<PowerUpController>();
+        powerUpController = FindObjectOfType<PowerUpController>();
         shieldColor = gameObject.GetComponent<SpriteRenderer>();
         
     }
@@ -79,16 +79,16 @@ public class Shield : MonoBehaviour
         }
     }
 
-    /*public void RechargeShield()
+    public void RechargeShield()
     {
         shieldHealth = shieldHealthDefault;
         shieldDuration = shieldDurationDefault;
-        //change shield color back to default
-    }*/
+        shieldColor.color = new Color(1, 1, 1, 1);
+    }
 
     void DestroyShield()
     {
-        //powerUpController.ShieldStatus();
+        powerUpController.ShieldStatus();
         Destroy(gameObject);
     }
 }
