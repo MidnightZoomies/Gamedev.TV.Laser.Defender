@@ -55,6 +55,8 @@ MonoBehaviour:
   asteroidDestructionSFX: {fileID: 8300000, guid: 70f6fbff354fdd44486858ddce1a179f,
     type: 3}
   asteroidDestructionSFXVolume: 0.25
+  powerUpSFX: {fileID: 8300000, guid: d1f2851794be95242a9662a5cac76e54, type: 3}
+  powerUpSFXVolume: 0.7
 --- !u!82 &731610641
 AudioSource:
   m_ObjectHideFlags: 0

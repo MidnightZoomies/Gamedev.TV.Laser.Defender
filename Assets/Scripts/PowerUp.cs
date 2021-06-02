@@ -12,16 +12,22 @@ public class PowerUp : MonoBehaviour
     [Space(10, order = 5)]
     [SerializeField] int powerUpID;
     PowerUpController powerUpController;
+    SoundController soundController;
     void OnTriggerEnter2D(Collider2D other)
     {
-        powerUpController = FindObjectOfType<PowerUpController>();
-        switch (powerUpID)
+        if (other.tag == "Player")
         {
-            case 0:
-                powerUpController.ShieldPowerUp();
-                break;
-                //case 1:
+            powerUpController = FindObjectOfType<PowerUpController>();
+            soundController = FindObjectOfType<SoundController>();
+            soundController.PowerUp();
+            switch (powerUpID)
+            {
+                case 0:
+                    powerUpController.ShieldPowerUp();
+                    break;
+                    //case 1:
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
