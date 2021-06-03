@@ -22,8 +22,18 @@ public class Enemy : MonoBehaviour
     GameSession gameSession;
     [SerializeField] int enemyScore = 100;
 
+    [Header("Power Ups")]
+    [SerializeField] List<GameObject> powerUp;
+    [SerializeField] int powerUpChanceMeasure;
+    float powerUpSpeed = -1f;
+    int powerUpTypeRandom;
+    int powerUpTypeRandomMax;
+    int powerUpChanceRandom;
+
+
     void Start()
     {
+        powerUpTypeRandomMax = powerUp.Count;
         soundController = FindObjectOfType<SoundController>();
         gameSession = FindObjectOfType<GameSession>();
     }
@@ -81,9 +91,20 @@ public class Enemy : MonoBehaviour
     private void EnemyDeath()
     {
         gameSession.AddToScore(enemyScore);
+        PowerUpGeneration();
         EnemyDeathEffects();
     }
 
+    void PowerUpGeneration()
+    {
+        powerUpChanceRandom = Random.Range(0, 101);
+        if (powerUpChanceRandom <= powerUpChanceMeasure)
+        {
+            powerUpTypeRandom = Random.Range(0, powerUpTypeRandomMax);
+            GameObject powerUpInstance = Instantiate(powerUp[powerUpTypeRandom], transform.position, Quaternion.identity);
+            powerUpInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, powerUpSpeed);
+        }
+    }
     private void EnemyDeathEffects()
     {
         Destroy(gameObject);

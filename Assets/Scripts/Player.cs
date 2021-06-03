@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     //config perams
     [Header("Health")]
     [SerializeField] int playerHealth = 500;
+    [SerializeField] int healthPowerUp = 500;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed = 15f;
@@ -138,5 +139,10 @@ public class Player : MonoBehaviour
     public int UpdatePlayerHealth()
     {
         return playerHealth;
+    }
+
+    public void HealthPowerUp()
+    {
+        playerHealth = healthPowerUp;
     }
 }
