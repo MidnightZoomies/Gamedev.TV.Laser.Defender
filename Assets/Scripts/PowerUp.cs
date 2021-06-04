@@ -8,12 +8,13 @@ public class PowerUp : MonoBehaviour
     [Space(-10, order = 1)]
     [Header("1 = Health", order = 2)]
     [Space(-10, order = 3)]
-    [Header("2 = TBD", order = 4)]
+    [Header("2 = Bomb", order = 4)]
     [Space(10, order = 5)]
     [SerializeField] int powerUpID;
     PowerUpController powerUpController;
     SoundController soundController;
     Player player;
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -29,6 +30,13 @@ public class PowerUp : MonoBehaviour
                 case 1:
                     player = FindObjectOfType<Player>();
                     player.HealthPowerUp();
+                    break;
+                case 2:
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    for (int i = 0; i < enemies.Length; i++)
+                    {
+                        enemies[i].GetComponent<Enemy>().EnemyDeath();
+                    }
                     break;
             }
             Destroy(gameObject);

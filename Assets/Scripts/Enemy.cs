@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void EnemyDeath()
+    public void EnemyDeath()
     {
         gameSession.AddToScore(enemyScore);
         PowerUpGeneration();
