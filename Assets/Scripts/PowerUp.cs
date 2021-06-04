@@ -38,6 +38,10 @@ public class PowerUp : MonoBehaviour
                         enemies[i].GetComponent<Enemy>().EnemyDeath();
                     }
                     break;
+                case 3:
+                    player = FindObjectOfType<Player>();
+                    player.DualLaser();
+                    break;
             }
             Destroy(gameObject);
         }

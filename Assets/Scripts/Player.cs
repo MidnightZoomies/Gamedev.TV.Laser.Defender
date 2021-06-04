@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
     float yMin;
     float yMax;
 
+    bool dualLaser = false;
+    Vector3 dualLaserOffsetRight;
+    Vector3 dualLaserOffsetLeft;
+
     /*private Vector3 mousePosition;
     private Rigidbody2D rb;
     private Vector2 direction;
@@ -44,6 +48,8 @@ public class Player : MonoBehaviour
         //rb = GetComponent<Rigidbody2D>();
         soundController = FindObjectOfType<SoundController>();
         SetUpMoveBoundaries();
+        dualLaserOffsetRight = new Vector3(0.25f, 0, 0);
+        dualLaserOffsetLeft = new Vector3(-0.25f, 0, 0);
     }
 
     // Update is called once per frame
@@ -71,10 +77,22 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
-            soundController.PlayerShot();
-            yield return new WaitForSeconds(projectileFiringPeriod);
+            if (dualLaser == true)
+            {
+                GameObject laserRight = Instantiate(playerLaser, transform.position + dualLaserOffsetRight, Quaternion.identity);
+                GameObject laserLeft = Instantiate(playerLaser, transform.position + dualLaserOffsetLeft, Quaternion.identity);
+                laserRight.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+                laserLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+                soundController.PlayerShot();
+                yield return new WaitForSeconds(projectileFiringPeriod);
+            }
+            else
+            {
+                GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+                soundController.PlayerShot();
+                yield return new WaitForSeconds(projectileFiringPeriod);
+            }
         }
     }
 
@@ -144,5 +162,10 @@ public class Player : MonoBehaviour
     public void HealthPowerUp()
     {
         playerHealth = healthPowerUp;
+    }
+
+    public void DualLaser()
+    {
+        dualLaser = true;
     }
 }
