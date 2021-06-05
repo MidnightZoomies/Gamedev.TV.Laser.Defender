@@ -18,16 +18,8 @@ public class WeaponController : MonoBehaviour
     public void WeaponRandom()
     {
         weaponDuration = weaponDurationMax;
-        weaponRandom = Random.Range(0, 2);
-        switch (weaponRandom)
-        {
-            case 0:
-                player.DualLaser();
-                break;
-            case 1:
-                player.SpreadFire();
-                break;
-        }
+        weaponRandom = Random.Range(1, 3);
+        player.FireType(weaponRandom);
     }
 
     void Update()
@@ -35,7 +27,7 @@ public class WeaponController : MonoBehaviour
         weaponDuration -= 1f * Time.deltaTime;
         if (weaponDuration <= 0)
         {
-            player.NormalFire();
+            player.FireType(0);
             Destroy(gameObject);
         }
     }

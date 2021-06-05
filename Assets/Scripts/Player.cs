@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     SoundController soundController;
 
     Coroutine firingCoroutine;
+    int fireType = 0;
     bool firingToggle = false;
     bool dualLaser = false;
     bool spreadFireToggle = false;
@@ -80,7 +81,14 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            if (dualLaser == true)
+            if (fireType == 0)
+            {
+                GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+                soundController.PlayerShot();
+                yield return new WaitForSeconds(projectileFiringPeriod);
+            }
+            else if (fireType == 1)
             {
                 GameObject laserRight = Instantiate(playerLaser, transform.position + dualLaserOffsetRight, Quaternion.identity);
                 GameObject laserLeft = Instantiate(playerLaser, transform.position + dualLaserOffsetLeft, Quaternion.identity);
@@ -89,7 +97,7 @@ public class Player : MonoBehaviour
                 soundController.PlayerShot();
                 yield return new WaitForSeconds(projectileFiringPeriod);
             }
-            else if (spreadFireToggle == true)
+            else if (fireType == 2)
             {
                 GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
                 GameObject laserRight = Instantiate(playerLaser, transform.position, Quaternion.Euler(Vector3.forward * -15f));
@@ -97,13 +105,6 @@ public class Player : MonoBehaviour
                 laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
                 laserRight.GetComponent<Rigidbody2D>().velocity = new Vector2(5f, laserSpeed);
                 laserLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(-5f, laserSpeed);
-                soundController.PlayerShot();
-                yield return new WaitForSeconds(projectileFiringPeriod);
-            }
-            else
-            {
-                GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
-                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
                 soundController.PlayerShot();
                 yield return new WaitForSeconds(projectileFiringPeriod);
             }
@@ -178,20 +179,8 @@ public class Player : MonoBehaviour
         playerHealth = healthPowerUp;
     }
 
-    public void DualLaser()
+    public void FireType(int weapon)
     {
-        dualLaser = true;
-        spreadFireToggle = false;
-    }
-
-    public void SpreadFire()
-    {
-        spreadFireToggle = true;
-        dualLaser = false;
-    }
-    public void NormalFire()
-    {
-        spreadFireToggle = false;
-        dualLaser = false;
+        fireType = weapon;
     }
 }
