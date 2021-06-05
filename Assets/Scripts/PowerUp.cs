@@ -13,9 +13,11 @@ public class PowerUp : MonoBehaviour
     [Header("3 = Weapon", order = 6)]
     [Space(10, order = 7)]
     [SerializeField] int powerUpID;
+    [SerializeField] GameObject weaponController;
     PowerUpController powerUpController;
     SoundController soundController;
     Player player;
+    WeaponController weaponControllerScript;
     
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -41,16 +43,15 @@ public class PowerUp : MonoBehaviour
                     }
                     break;
                 case 3:
-                    player = FindObjectOfType<Player>();
-                    int weaponRandom = Random.Range(0, 2);
-                    switch (weaponRandom)
+                    if (GameObject.Find("WeaponController(Clone)"))
                     {
-                        case 0:
-                            player.DualLaser();
-                            break;
-                        case 1:
-                            player.SpreadFire();
-                            break;
+                        weaponControllerScript = FindObjectOfType<WeaponController>();
+                        weaponControllerScript.WeaponRandom();
+                        break;
+                    }
+                    else
+                    {
+                        Instantiate(weaponController, transform.position, transform.rotation);
                     }
                     break;
             }

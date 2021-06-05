@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpID: 3
+  weaponController: {fileID: 1128479985518176905, guid: 3327b931f9c081e458a072e76fb9ddae,
+    type: 3}
 --- !u!61 &8880380429691213520
 BoxCollider2D:
   m_ObjectHideFlags: 0

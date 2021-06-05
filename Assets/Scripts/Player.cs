@@ -189,4 +189,9 @@ public class Player : MonoBehaviour
         spreadFireToggle = true;
         dualLaser = false;
     }
+    public void NormalFire()
+    {
+        spreadFireToggle = false;
+        dualLaser = false;
+    }
 }
