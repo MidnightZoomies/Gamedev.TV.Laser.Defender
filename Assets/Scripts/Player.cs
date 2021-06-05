@@ -27,15 +27,18 @@ public class Player : MonoBehaviour
 
     Coroutine firingCoroutine;
     bool firingToggle = false;
+    bool dualLaser = false;
+    bool spreadFireToggle = false;
+
+    Vector3 dualLaserOffsetRight;
+    Vector3 dualLaserOffsetLeft;
 
     float xMin;
     float xMax;
     float yMin;
     float yMax;
 
-    bool dualLaser = false;
-    Vector3 dualLaserOffsetRight;
-    Vector3 dualLaserOffsetLeft;
+
 
     /*private Vector3 mousePosition;
     private Rigidbody2D rb;
@@ -83,6 +86,17 @@ public class Player : MonoBehaviour
                 GameObject laserLeft = Instantiate(playerLaser, transform.position + dualLaserOffsetLeft, Quaternion.identity);
                 laserRight.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
                 laserLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+                soundController.PlayerShot();
+                yield return new WaitForSeconds(projectileFiringPeriod);
+            }
+            else if (spreadFireToggle == true)
+            {
+                GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
+                GameObject laserRight = Instantiate(playerLaser, transform.position, Quaternion.Euler(Vector3.forward * -15f));
+                GameObject laserLeft = Instantiate(playerLaser, transform.position, Quaternion.Euler(Vector3.forward * 15f));
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+                laserRight.GetComponent<Rigidbody2D>().velocity = new Vector2(5f, laserSpeed);
+                laserLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(-5f, laserSpeed);
                 soundController.PlayerShot();
                 yield return new WaitForSeconds(projectileFiringPeriod);
             }
@@ -167,5 +181,12 @@ public class Player : MonoBehaviour
     public void DualLaser()
     {
         dualLaser = true;
+        spreadFireToggle = false;
+    }
+
+    public void SpreadFire()
+    {
+        spreadFireToggle = true;
+        dualLaser = false;
     }
 }

@@ -9,7 +9,9 @@ public class PowerUp : MonoBehaviour
     [Header("1 = Health", order = 2)]
     [Space(-10, order = 3)]
     [Header("2 = Bomb", order = 4)]
-    [Space(10, order = 5)]
+    [Space(-10, order = 5)]
+    [Header("3 = Weapon", order = 6)]
+    [Space(10, order = 7)]
     [SerializeField] int powerUpID;
     PowerUpController powerUpController;
     SoundController soundController;
@@ -40,7 +42,16 @@ public class PowerUp : MonoBehaviour
                     break;
                 case 3:
                     player = FindObjectOfType<Player>();
-                    player.DualLaser();
+                    int weaponRandom = Random.Range(0, 2);
+                    switch (weaponRandom)
+                    {
+                        case 0:
+                            player.DualLaser();
+                            break;
+                        case 1:
+                            player.SpreadFire();
+                            break;
+                    }
                     break;
             }
             Destroy(gameObject);
