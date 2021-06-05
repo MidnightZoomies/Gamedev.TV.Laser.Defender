@@ -26,10 +26,8 @@ public class Player : MonoBehaviour
     SoundController soundController;
 
     Coroutine firingCoroutine;
-    int fireType = 0;
     bool firingToggle = false;
-    bool dualLaser = false;
-    bool spreadFireToggle = false;
+    int fireType = 0;
 
     Vector3 dualLaserOffsetRight;
     Vector3 dualLaserOffsetLeft;
