@@ -10,10 +10,16 @@ public class PowerUpController : MonoBehaviour
     bool shieldActive = false;
     Player player;
     Shield shield;
-
+    [SerializeField] List<GameObject> powerUps;
+    [SerializeField] int powerUpChanceMeasure;
+    float powerUpSpeed = -1f;
+    int powerUpTypeRandom;
+    int powerUpTypeRandomMax;
+    int powerUpChanceRandom;
 
     private void Start()
     {
+        powerUpTypeRandomMax = powerUps.Count;
         player = FindObjectOfType<Player>();
     }
 
@@ -34,5 +40,16 @@ public class PowerUpController : MonoBehaviour
     public void ShieldStatus()
     {
         shieldActive = false;
+    }
+
+    public void PowerUp(Vector3 obj)
+    {
+        powerUpChanceRandom = Random.Range(0, 101);
+        if (powerUpChanceRandom <= powerUpChanceMeasure)
+        {
+            powerUpTypeRandom = Random.Range(0, powerUpTypeRandomMax);
+            GameObject powerUpInstance = Instantiate(powerUps[powerUpTypeRandom], obj, Quaternion.identity);
+            powerUpInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, powerUpSpeed);
+        }
     }
 }
