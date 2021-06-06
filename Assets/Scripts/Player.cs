@@ -181,4 +181,9 @@ public class Player : MonoBehaviour
     {
         fireType = weapon;
     }
+
+    public int MultiShipWeapon()
+    {
+        return fireType;
+    }
 }

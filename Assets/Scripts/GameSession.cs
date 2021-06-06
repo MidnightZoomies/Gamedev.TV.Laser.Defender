@@ -36,7 +36,7 @@ public class GameSession : MonoBehaviour
         }
     }
 
-        public int GetScore()
+    public int GetScore()
     {
         return score;
     }

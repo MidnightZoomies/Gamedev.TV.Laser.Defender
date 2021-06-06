@@ -18,10 +18,12 @@ public class PowerUp : MonoBehaviour
     SoundController soundController;
     Player player;
     WeaponController weaponControllerScript;
-    
+    Vector3 multiShipRightOffset = new Vector3(2, -0.5f, 0);
+    Vector3 multiShipLeftOffset = new Vector3(-2, -0.5f, 0);
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "MultiShip")
         {
             powerUpController = FindObjectOfType<PowerUpController>();
             soundController = FindObjectOfType<SoundController>();
@@ -54,6 +56,22 @@ public class PowerUp : MonoBehaviour
                         Instantiate(weaponController, transform.position, transform.rotation);
                     }
                     break;
+                case 4:
+                    {
+                        if (GameObject.Find("MultiShip(Clone)"))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            player = FindObjectOfType<Player>();
+                            GameObject multiShipRight = Instantiate(weaponController, player.transform.position + multiShipRightOffset, Quaternion.identity);
+                            GameObject multiShipLeft = Instantiate(weaponController, player.transform.position + multiShipLeftOffset, Quaternion.identity);
+                            multiShipRight.transform.SetParent(player.GetComponent<Transform>());
+                            multiShipLeft.transform.SetParent(player.GetComponent<Transform>());
+                            break;
+                        }
+                    }
             }
             Destroy(gameObject);
         }

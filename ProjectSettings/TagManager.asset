@@ -10,6 +10,7 @@ TagManager:
   - EnemyLaser
   - Asteroid
   - Shield
+  - MultiShip
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Laser
+    uniqueID: 3191618209
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
