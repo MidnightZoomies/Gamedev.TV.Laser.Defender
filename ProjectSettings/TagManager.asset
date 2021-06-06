@@ -10,7 +10,8 @@ TagManager:
   - EnemyLaser
   - Asteroid
   - Shield
-  - MultiShip
+  - MultiShipLeft
+  - MultiShipRight
   layers:
   - Default
   - TransparentFX

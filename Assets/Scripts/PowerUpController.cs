@@ -16,6 +16,14 @@ public class PowerUpController : MonoBehaviour
     int powerUpTypeRandom;
     int powerUpTypeRandomMax;
     int powerUpChanceRandom;
+    bool multiShipRightCheck = false;
+    bool multiShipLeftCheck = false;
+    Vector3 multiShipRightOffset = new Vector3(2, -0.5f, 0);
+    Vector3 multiShipLeftOffset = new Vector3(-2, -0.5f, 0);
+    [SerializeField] GameObject multiShipRightObject;
+    [SerializeField] GameObject multiShipLeftObject;
+    WeaponController weaponControllerScript;
+    [SerializeField] GameObject weaponController;
 
     private void Start()
     {
@@ -50,6 +58,57 @@ public class PowerUpController : MonoBehaviour
             powerUpTypeRandom = Random.Range(0, powerUpTypeRandomMax);
             GameObject powerUpInstance = Instantiate(powerUps[powerUpTypeRandom], obj, Quaternion.identity);
             powerUpInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, powerUpSpeed);
+        }
+    }
+
+    public void MultiShip()
+    {
+        if (multiShipLeftCheck || multiShipRightCheck)
+        {
+            if (!multiShipLeftCheck)
+            {
+                GameObject multiShipLeft = Instantiate(multiShipLeftObject, player.transform.position + multiShipLeftOffset, Quaternion.identity);
+                multiShipLeft.transform.SetParent(player.GetComponent<Transform>());
+                multiShipLeftCheck = true;
+            }
+            if (!multiShipRightCheck)
+            {
+                GameObject multiShipRight = Instantiate(multiShipRightObject, player.transform.position + multiShipRightOffset, Quaternion.identity);
+                multiShipRight.transform.SetParent(player.GetComponent<Transform>());
+                multiShipRightCheck = true;
+            }
+        }
+        else
+        {
+            GameObject multiShipRight = Instantiate(multiShipRightObject, player.transform.position + multiShipRightOffset, Quaternion.identity);
+            GameObject multiShipLeft = Instantiate(multiShipLeftObject, player.transform.position + multiShipLeftOffset, Quaternion.identity);
+            multiShipRight.transform.SetParent(player.GetComponent<Transform>());
+            multiShipLeft.transform.SetParent(player.GetComponent<Transform>());
+            multiShipLeftCheck = true;
+            multiShipRightCheck = true;
+        }
+    }
+
+    public void MultiShipLeftDeath()
+    {
+        multiShipLeftCheck = false;
+    }
+
+    public void MultiShipRightDeath()
+    {
+        multiShipRightCheck = false;
+    }
+
+    public void WeaponController()
+    {
+        if (GameObject.Find("WeaponController(Clone)"))
+        {
+            weaponControllerScript = FindObjectOfType<WeaponController>();
+            weaponControllerScript.WeaponRandom();
+        }
+        else
+        {
+            Instantiate(weaponController, transform.position, transform.rotation);
         }
     }
 }

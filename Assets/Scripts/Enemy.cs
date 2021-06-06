@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
             if (!damageManager) { return; } //if damageManager is null, does not progress.
             ProcessHit(damageManager);
         }
-        else if (other.tag == "Player" || other.tag == "Shield")
+        else if (other.tag == "Player" || other.tag == "Shield" || other.tag == "MultiShipLeft" || other.tag == "MultiShipRight")
         {
             EnemyDeath();
         }

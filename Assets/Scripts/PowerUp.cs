@@ -13,17 +13,14 @@ public class PowerUp : MonoBehaviour
     [Header("3 = Weapon", order = 6)]
     [Space(10, order = 7)]
     [SerializeField] int powerUpID;
-    [SerializeField] GameObject weaponController;
+
     PowerUpController powerUpController;
     SoundController soundController;
     Player player;
-    WeaponController weaponControllerScript;
-    Vector3 multiShipRightOffset = new Vector3(2, -0.5f, 0);
-    Vector3 multiShipLeftOffset = new Vector3(-2, -0.5f, 0);
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" || other.tag == "MultiShip")
+        if (other.tag == "Player" || other.tag == "MultiShipLeft" || other.tag == "MultiShipRight")
         {
             powerUpController = FindObjectOfType<PowerUpController>();
             soundController = FindObjectOfType<SoundController>();
@@ -45,32 +42,13 @@ public class PowerUp : MonoBehaviour
                     }
                     break;
                 case 3:
-                    if (GameObject.Find("WeaponController(Clone)"))
-                    {
-                        weaponControllerScript = FindObjectOfType<WeaponController>();
-                        weaponControllerScript.WeaponRandom();
-                        break;
-                    }
-                    else
-                    {
-                        Instantiate(weaponController, transform.position, transform.rotation);
-                    }
+                    powerUpController.WeaponController();
                     break;
                 case 4:
                     {
-                        if (GameObject.Find("MultiShip(Clone)"))
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            player = FindObjectOfType<Player>();
-                            GameObject multiShipRight = Instantiate(weaponController, player.transform.position + multiShipRightOffset, Quaternion.identity);
-                            GameObject multiShipLeft = Instantiate(weaponController, player.transform.position + multiShipLeftOffset, Quaternion.identity);
-                            multiShipRight.transform.SetParent(player.GetComponent<Transform>());
-                            multiShipLeft.transform.SetParent(player.GetComponent<Transform>());
-                            break;
-                        }
+                        powerUpController = FindObjectOfType<PowerUpController>();
+                        powerUpController.MultiShip();
+                        break;
                     }
             }
             Destroy(gameObject);
