@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d8ff67d7997d544978b2fadc76ea88, type: 3}
   m_Name: MiniBossWave 2
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4903564125814450950, guid: 013b7fc8f6049934d8857e65f30af270,
+  enemyPrefab: {fileID: 4903564125814450950, guid: ac1596a715e819a4cb4978f4e8326746,
     type: 3}
-  pathPrefab: {fileID: 2484079507514338374, guid: 5aecdd17bdd39b14db2e648a3508c31a,
+  pathPrefab: {fileID: 2484079507514338374, guid: 70fbdcfe23e586d4aadba05a4d06ad2f,
     type: 3}
   timeBetweenSpawns: 2
   spawnRandomFactor: 0.3
-  numberOfEnemies: 3
+  numberOfEnemies: 1
   moveSpeed: 2

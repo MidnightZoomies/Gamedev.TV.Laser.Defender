@@ -1149,7 +1149,12 @@ PrefabInstance:
     - target: {fileID: 5396685187120323370, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
         type: 3}
       propertyPath: bossRate
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396685187120323370, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
+        type: 3}
+      propertyPath: miniBossRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5396685187120323370, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
         type: 3}
@@ -1191,6 +1196,30 @@ PrefabInstance:
       propertyPath: waveConfigs.Array.data[5]
       value: 
       objectReference: {fileID: 11400000, guid: d5e41a35dd17ac04486edbdfb9ab77f9,
+        type: 2}
+    - target: {fileID: 5396685187120323370, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
+        type: 3}
+      propertyPath: miniBossWaveConfigs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ab74a96b8ca34f4a94d8ed891106e72,
+        type: 2}
+    - target: {fileID: 5396685187120323370, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
+        type: 3}
+      propertyPath: miniBossWaveConfigs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ab74a96b8ca34f4a94d8ed891106e72,
+        type: 2}
+    - target: {fileID: 5396685187120323370, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
+        type: 3}
+      propertyPath: miniBossWaveConfigs.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ab74a96b8ca34f4a94d8ed891106e72,
+        type: 2}
+    - target: {fileID: 5396685187120323370, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
+        type: 3}
+      propertyPath: miniBossWaveConfigs.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ab74a96b8ca34f4a94d8ed891106e72,
         type: 2}
     - target: {fileID: 5396685187120323371, guid: 465e291fbebe6f64db7ccb7af1ee52c4,
         type: 3}
