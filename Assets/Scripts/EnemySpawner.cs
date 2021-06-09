@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Waves")]
     [SerializeField] List<WaveConfig> waveConfigs;
 
-    //new
+
     [SerializeField] List<WaveConfig> miniBossWaveConfigs;
     [SerializeField] WaveConfig bossWaveConfig;
     [SerializeField] int miniBossCountDown =1;
@@ -23,14 +23,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int miniBossRate = 3;
     [SerializeField] int bossRate = 20;
     int miniBossWaveRandom;
-    //
 
     IEnumerator Start()
     {
         do
         {
             yield return StartCoroutine(SpawnWaves());
-            //new
             miniBossCountDown++;
             bossCountDown++;
             if (bossCountDown >= bossRate)
@@ -38,7 +36,6 @@ public class EnemySpawner : MonoBehaviour
                 StopWaves();
                 StartCoroutine(SpawnBoss(bossWaveConfig));
             }
-            //
         }
         while (looping);
     }
@@ -47,7 +44,6 @@ public class EnemySpawner : MonoBehaviour
     {
         waveRandom = Random.Range(waveRandomMin, waveRandomMax);
         var currentWave = waveConfigs[waveRandom];
-        //new
         yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
         if (miniBossCountDown >= miniBossRate)
         {
@@ -56,7 +52,6 @@ public class EnemySpawner : MonoBehaviour
             StartCoroutine(SpawnAllMiniBossesInWave(currentMiniBossWave));
             miniBossCountDown = 0;
         }
-        //
     }
 
     private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
@@ -69,7 +64,6 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    //new
     private IEnumerator SpawnAllMiniBossesInWave(WaveConfig waveConfig)
     {
         for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++)
@@ -80,14 +74,12 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-
     private IEnumerator SpawnBoss(WaveConfig waveConfig)
     {
         yield return new WaitForSeconds(5f);
         var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
-        //newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+        newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
     }
-    //
 
         //Add a limit of waves, counter variable that is being tested against. Stops wave and start boss.
         //Cycle waves? 5x normal waves, 1x major wave, repeat. Counter variable?
