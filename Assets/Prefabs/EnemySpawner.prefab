@@ -43,6 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9e1ac11d64b7344931b639e72694db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveRandomMin: 0
+  waveRandomMax: 5
+  looping: 1
   waveConfigs:
   - {fileID: 11400000, guid: d5e41a35dd17ac04486edbdfb9ab77f9, type: 2}
   - {fileID: 11400000, guid: e7c438175be038646af01b69c5fed333, type: 2}
+  - {fileID: 11400000, guid: a6abed1dd4cce5e4b8e9372c1cf5979f, type: 2}
+  - {fileID: 11400000, guid: fc1a4d00c4da2744fb3ffb201c9e5674, type: 2}
+  - {fileID: 11400000, guid: 4feea18f1a92c1d449e827584096fe04, type: 2}
+  miniBossWaveConfigs:
+  - {fileID: 11400000, guid: a80bbbde71f4c27469a889dc16fa4d5d, type: 2}
+  - {fileID: 11400000, guid: 8ab74a96b8ca34f4a94d8ed891106e72, type: 2}
+  - {fileID: 11400000, guid: a95f8f28eae87c645aaf6e38d7c64630, type: 2}
+  - {fileID: 11400000, guid: 3e55391fe2983e445866104998d0e592, type: 2}
+  - {fileID: 11400000, guid: 0769a0656570a7e42a05800d9a44070f, type: 2}
+  bossWaveConfig: {fileID: 11400000, guid: 5ceb8945f647ec941981a8fb92ce9af3, type: 2}
+  miniBossRate: 3
+  bossRate: 7

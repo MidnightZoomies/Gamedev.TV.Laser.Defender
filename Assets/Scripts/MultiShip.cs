@@ -35,7 +35,6 @@ public class MultiShip : MonoBehaviour
 
     void Update()
     {
-        weaponType = player.MultiShipWeapon();
         Fire();
     }
 
@@ -126,5 +125,10 @@ public class MultiShip : MonoBehaviour
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);
         soundController.PlayerDeath();
+    }
+
+    public void ToggleFireType(int fireType)
+    {
+        weaponType = fireType;
     }
 }

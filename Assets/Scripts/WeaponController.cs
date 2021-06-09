@@ -8,6 +8,7 @@ public class WeaponController : MonoBehaviour
     int weaponRandom;
     float weaponDuration;
     Player player;
+    MultiShip[] multiShip;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,11 @@ public class WeaponController : MonoBehaviour
         weaponDuration = weaponDurationMax;
         weaponRandom = Random.Range(1, 3);
         player.FireType(weaponRandom);
+        multiShip = FindObjectsOfType<MultiShip>();
+        foreach (MultiShip ship in multiShip)
+        {
+            ship.ToggleFireType(weaponRandom);
+        }
     }
 
     void Update()
