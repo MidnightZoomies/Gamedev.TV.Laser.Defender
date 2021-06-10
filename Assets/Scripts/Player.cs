@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] int healthPowerUp = 500;
 
     [Header("Movement")]
-    [SerializeField] float moveSpeed = 15f;
-    [SerializeField] float padding = 0.5f;
+    //[SerializeField] float moveSpeed = 100f;
+    float padding = 0.5f;
 
     [Header("Laser")]
     [SerializeField] GameObject playerLaser;
@@ -37,13 +37,12 @@ public class Player : MonoBehaviour
     float yMin;
     float yMax;
 
-
-
-    /*private Vector3 mousePosition;
+    private Vector3 mousePosition;
+    
+    /*private Vector3 mouseOffSet;
     private Rigidbody2D rb;
-    private Vector2 direction;
-    [SerializeField] private float moveSpeed = 100f;
-    */
+    private Vector2 direction;*/
+
 
     void Start()
     {
@@ -52,6 +51,7 @@ public class Player : MonoBehaviour
         SetUpMoveBoundaries();
         dualLaserOffsetRight = new Vector3(0.25f, 0, 0);
         dualLaserOffsetLeft = new Vector3(-0.25f, 0, 0);
+        //mouseOffSet = new Vector3(0, 0, 10);
     }
 
     // Update is called once per frame
@@ -120,15 +120,18 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        /*mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction = (mousePosition - transform.position).normalized;
-        rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);*/
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var newXPos = Mathf.Clamp(mousePosition.x, xMin, xMax);
+        var newYPos = Mathf.Clamp(mousePosition.y, yMin, yMax);
+        transform.position = new Vector2(newXPos, newYPos);
+        //direction = (mousePosition - transform.position).normalized;
+        //rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
 
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
+        /*var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-        transform.position = new Vector2(newXPos, newYPos);
+        transform.position = new Vector2(newXPos, newYPos);*/
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveRandomMin: 0
-  waveRandomMax: 5
+  waveRandomMax: 3
   looping: 1
   waveConfigs:
   - {fileID: 11400000, guid: d5e41a35dd17ac04486edbdfb9ab77f9, type: 2}
@@ -59,5 +59,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e55391fe2983e445866104998d0e592, type: 2}
   - {fileID: 11400000, guid: 0769a0656570a7e42a05800d9a44070f, type: 2}
   bossWaveConfig: {fileID: 11400000, guid: 5ceb8945f647ec941981a8fb92ce9af3, type: 2}
+  miniBossCountDown: 1
+  bossCountDown: 1
   miniBossRate: 3
   bossRate: 7
+  slowWaveConfigs:
+  - {fileID: 11400000, guid: d5e41a35dd17ac04486edbdfb9ab77f9, type: 2}
+  - {fileID: 11400000, guid: e7c438175be038646af01b69c5fed333, type: 2}
+  - {fileID: 11400000, guid: 4feea18f1a92c1d449e827584096fe04, type: 2}
+  fastWaveConfigs:
+  - {fileID: 11400000, guid: a6abed1dd4cce5e4b8e9372c1cf5979f, type: 2}
+  - {fileID: 11400000, guid: fc1a4d00c4da2744fb3ffb201c9e5674, type: 2}
+  - {fileID: 11400000, guid: fc1a4d00c4da2744fb3ffb201c9e5674, type: 2}
+  spawnDelay: 2
+  spawnDelayMin: 1
+  spawnDelayMax: 5

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb54acb216f5454fbaa0c8d1f95c3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 400
   enemyLaser: {fileID: 8598264013166933430, guid: 1eb9fc56c73cc6f41a534536d0dfdbbc,
     type: 3}
   laserSpeed: 5
@@ -136,12 +136,6 @@ MonoBehaviour:
     type: 3}
   explosionDuration: 1
   enemyScore: 50
-  powerUp:
-  - {fileID: 1214345118629268138, guid: 0e9457895ee5ad84792a802c9aea0e13, type: 3}
-  - {fileID: 1214345118629268138, guid: d79ae9f46b5d0d64a90d86fa29eb1f45, type: 3}
-  - {fileID: 1214345118629268138, guid: 342fc376d32efde4db1add524e28ad35, type: 3}
-  - {fileID: 1214345118629268138, guid: 0e6b273068bf4a54c9e288facfc6167a, type: 3}
-  powerUpChanceMeasure: 5
 --- !u!50 &5650425635746347351
 Rigidbody2D:
   serializedVersion: 4

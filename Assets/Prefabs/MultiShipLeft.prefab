@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiShipHealth: 300
-  playerLaser: {fileID: 8598264013166933430, guid: 7aa752b5cfd9d404c8cc12c88fdca259,
+  playerLaser: {fileID: 8598264013166933430, guid: 5f237369e9983494b97762ab3253ea5a,
     type: 3}
   laserSpeed: 20
   projectileFiringPeriod: 0.1

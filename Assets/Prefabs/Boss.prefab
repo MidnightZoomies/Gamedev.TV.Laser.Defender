@@ -579,8 +579,8 @@ GameObject:
   - component: {fileID: 4795481589331998537}
   - component: {fileID: 1443345333}
   - component: {fileID: 5612670567097732505}
-  - component: {fileID: -6784510676407486698}
   - component: {fileID: -8835137747132269683}
+  - component: {fileID: -702557225090596110}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -695,18 +695,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6784510676407486698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7317654991751265301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6f5a070e4c98d4abb3c151bbf45529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8835137747132269683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,6 +708,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+--- !u!114 &-702557225090596110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7317654991751265301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deec83a293f76f44b9de9f57120048dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7470321628916496248
 GameObject:
   m_ObjectHideFlags: 0

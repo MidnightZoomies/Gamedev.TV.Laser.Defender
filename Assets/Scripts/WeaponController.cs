@@ -34,6 +34,11 @@ public class WeaponController : MonoBehaviour
         if (weaponDuration <= 0)
         {
             player.FireType(0);
+            multiShip = FindObjectsOfType<MultiShip>();
+            foreach (MultiShip ship in multiShip)
+            {
+                ship.ToggleFireType(0);
+            }
             Destroy(gameObject);
         }
     }
