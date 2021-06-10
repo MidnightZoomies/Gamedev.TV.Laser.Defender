@@ -11,8 +11,8 @@ public class Shield : MonoBehaviour
     [Header("Shield Stats")]
     [SerializeField] float shieldDuration = 360f;
     [SerializeField] int shieldDurationDefault = 360;
-    [SerializeField] int shieldHealth = 3000;
-    [SerializeField] int shieldHealthDefault = 3000;
+    [SerializeField] int shieldHealth = 500;
+    [SerializeField] int shieldHealthDefault = 500;
     SpriteRenderer shieldColor;
 
     //References
@@ -65,11 +65,11 @@ public class Shield : MonoBehaviour
 
     void ShieldDamage()
     {
-        if (shieldHealth >= 1001 && shieldHealth <= 2000) //Shield colors based on health
+        if (shieldHealth >= 101 && shieldHealth <= 300) //Shield colors based on health
         {
             shieldColor.color = new Color(1, 1, 1, 0.50f);
         }
-        else if (shieldHealth >= 1 && shieldHealth <= 1000)
+        else if (shieldHealth >= 1 && shieldHealth <= 100)
         {
             shieldColor.color = new Color(1, 1, 1, 0.25f);
         }

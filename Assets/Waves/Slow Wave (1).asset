@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22d8ff67d7997d544978b2fadc76ea88, type: 3}
-  m_Name: Wave 3
+  m_Name: Slow Wave (1)
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4903564125814450950, guid: 22ee50a04d9df4440834a503462650d7,
+  enemyPrefab: {fileID: 4903564125814450950, guid: 5495b0c19ab4a7041896fd887a74e72d,
     type: 3}
-  pathPrefab: {fileID: 5617409359974205439, guid: 1794c0f3dd7f24c4988ffbeb76cf8683,
+  pathPrefab: {fileID: 25968730649995251, guid: d042f5755f69b3a4e92198bf52e6171b,
     type: 3}
-  timeBetweenSpawns: 0.5
+  timeBetweenSpawns: 1
   spawnRandomFactor: 0.3
   numberOfEnemies: 5
-  moveSpeed: 10
+  moveSpeed: 4

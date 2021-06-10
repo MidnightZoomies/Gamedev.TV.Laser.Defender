@@ -95,10 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d114d835407ef41b23d8ceeab8a7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldDuration: 30
-  shieldDurationDefault: 360
-  shieldHealth: 3000
-  shieldHealthDefault: 3000
+  shieldDuration: 15
+  shieldDurationDefault: 15
+  shieldHealth: 500
+  shieldHealthDefault: 500
 --- !u!58 &8416391311640040695
 CircleCollider2D:
   m_ObjectHideFlags: 0

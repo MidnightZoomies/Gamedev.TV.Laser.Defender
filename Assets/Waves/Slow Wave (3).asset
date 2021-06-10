@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22d8ff67d7997d544978b2fadc76ea88, type: 3}
-  m_Name: Wave 5
+  m_Name: Slow Wave (3)
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4903564125814450950, guid: 5495b0c19ab4a7041896fd887a74e72d,
     type: 3}

@@ -56,13 +56,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a80bbbde71f4c27469a889dc16fa4d5d, type: 2}
   - {fileID: 11400000, guid: 8ab74a96b8ca34f4a94d8ed891106e72, type: 2}
   - {fileID: 11400000, guid: a95f8f28eae87c645aaf6e38d7c64630, type: 2}
-  - {fileID: 11400000, guid: 3e55391fe2983e445866104998d0e592, type: 2}
-  - {fileID: 11400000, guid: 0769a0656570a7e42a05800d9a44070f, type: 2}
   bossWaveConfig: {fileID: 11400000, guid: 5ceb8945f647ec941981a8fb92ce9af3, type: 2}
   miniBossCountDown: 1
   bossCountDown: 1
   miniBossRate: 3
-  bossRate: 7
+  bossRate: 20
   slowWaveConfigs:
   - {fileID: 11400000, guid: d5e41a35dd17ac04486edbdfb9ab77f9, type: 2}
   - {fileID: 11400000, guid: e7c438175be038646af01b69c5fed333, type: 2}
