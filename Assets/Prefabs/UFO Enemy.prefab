@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20c25f4a7a4f2c49812b030bed60c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 18000
+  health: 16000
   enemyLaser: {fileID: 8598264013166933430, guid: acb7e07c9d248b047b0c376387169df6,
     type: 3}
   laserSpeed: -10

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb54acb216f5454fbaa0c8d1f95c3c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3000
+  health: 2500
   enemyLaser: {fileID: 8598264013166933430, guid: 0fb3cbf793711e14b87b900e10c24dd6,
     type: 3}
   laserSpeed: 5
