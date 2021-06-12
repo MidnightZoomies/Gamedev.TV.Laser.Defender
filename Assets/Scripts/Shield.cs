@@ -47,7 +47,7 @@ public class Shield : MonoBehaviour
             if (!damageManager) { return; } //if damageManager is null, does not progress.
             ProcessHit(damageManager);
         }
-        else if (other.tag == "Asteroid")
+        else if (other.tag == "Asteroid" || other.tag == "Boss" || other.tag == "Boss Part")
         {
             DestroyShield();
         }

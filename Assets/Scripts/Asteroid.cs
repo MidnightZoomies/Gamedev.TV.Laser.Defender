@@ -60,8 +60,16 @@ public class Asteroid : MonoBehaviour
     private void DestroyAsteroid()
     {
         Destroy(gameObject);
+        PowerUpSpawn();
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);
         soundController.AsteroidDestruction();
+    }
+
+    private void PowerUpSpawn()
+    {
+        Vector3 currentPos = transform.position;
+        PowerUpController powerUpController = FindObjectOfType<PowerUpController>();
+        powerUpController.PowerUpAsteroid(currentPos);
     }
 }

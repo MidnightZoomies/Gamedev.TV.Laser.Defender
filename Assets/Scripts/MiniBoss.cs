@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class MiniBoss : MonoBehaviour
 {
     [SerializeField] float health = 100000f;
     SoundController soundController;
@@ -13,8 +13,6 @@ public class Boss : MonoBehaviour
     float shotCounter;
     [SerializeField] float minTimeBetweenShots = 1f;
     [SerializeField] float maxTimeBetweenShots = 3f;
-    [SerializeField] float enrageValue = 0.9f;
-    //[SerializeField] Transform target;
 
     [Header("Ship Explosion")]
     [SerializeField] GameObject explosionFX;
@@ -24,13 +22,13 @@ public class Boss : MonoBehaviour
     GameSession gameSession;
     [SerializeField] int enemyScore = 100;
 
-    Level level;
+    EnemySpawner enemySpawner;
 
     void Start()
     {
         soundController = FindObjectOfType<SoundController>();
         gameSession = FindObjectOfType<GameSession>();
-        level = FindObjectOfType<Level>();
+        enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 
     // Update is called once per frame
@@ -51,14 +49,15 @@ public class Boss : MonoBehaviour
     private void Fire()
     {
         GameObject laser = Instantiate(enemyLaser, transform.position, Quaternion.identity);
-        GameObject laserRight = Instantiate(enemyLaser, transform.position, Quaternion.Euler(Vector3.forward * -5f));
-        GameObject laserLeft = Instantiate(enemyLaser, transform.position, Quaternion.Euler(Vector3.forward * 5f));
+        GameObject laserRight = Instantiate(enemyLaser, transform.position, Quaternion.Euler(Vector3.forward * -10f));
+        GameObject laserLeft = Instantiate(enemyLaser, transform.position, Quaternion.Euler(Vector3.forward * 10f));
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
-        laserRight.GetComponent<Rigidbody2D>().velocity = new Vector2(-1.5f, laserSpeed);
-        laserLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(1.5f, laserSpeed);
+        laserRight.GetComponent<Rigidbody2D>().velocity = new Vector2(-3f, laserSpeed);
+        laserLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(3f, laserSpeed);
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         soundController.EnemyShot();
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "PlayerLaser")
@@ -85,6 +84,7 @@ public class Boss : MonoBehaviour
     private void BossDeath()
     {
         gameSession.AddToScore(enemyScore);
+        enemySpawner.MiniBossDeath();
         BossDeathEffects();
     }
 
@@ -94,12 +94,5 @@ public class Boss : MonoBehaviour
         GameObject explosion = Instantiate(explosionFX, transform.position, transform.rotation);
         Destroy(explosion, explosionDuration);
         soundController.BossDeathTrigger();
-        level.LoadWinScreen();
-    }
-
-    public void BossPartDestroyed()
-    {
-        maxTimeBetweenShots = maxTimeBetweenShots * enrageValue;
-        laserSpeed -= 1;
     }
 }

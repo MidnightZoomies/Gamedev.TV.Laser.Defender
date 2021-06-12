@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     [Header("Laser")]
     [SerializeField] GameObject playerLaser;
+    [SerializeField] GameObject spreadLaser;
     [SerializeField] float laserSpeed = 20f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
 
@@ -98,8 +99,8 @@ public class Player : MonoBehaviour
             else if (fireType == 2)
             {
                 GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity);
-                GameObject laserRight = Instantiate(playerLaser, transform.position, Quaternion.Euler(Vector3.forward * -15f));
-                GameObject laserLeft = Instantiate(playerLaser, transform.position, Quaternion.Euler(Vector3.forward * 15f));
+                GameObject laserRight = Instantiate(spreadLaser, transform.position, Quaternion.Euler(Vector3.forward * -15f));
+                GameObject laserLeft = Instantiate(spreadLaser, transform.position, Quaternion.Euler(Vector3.forward * 15f));
                 laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
                 laserRight.GetComponent<Rigidbody2D>().velocity = new Vector2(5f, laserSpeed);
                 laserLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(-5f, laserSpeed);
@@ -142,7 +143,7 @@ public class Player : MonoBehaviour
             if (!damageManager) {return;} //if damageManager is null, does not progress.
             ProcessHit(damageManager);
         }
-        else if (other.tag == "Asteroid")
+        else if (other.tag == "Asteroid" || other.tag == "Boss" || other.tag == "Boss Part")
         {
             PlayerDeath();
         }

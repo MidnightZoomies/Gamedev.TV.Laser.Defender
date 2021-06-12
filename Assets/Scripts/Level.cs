@@ -37,7 +37,17 @@ public class Level : MonoBehaviour
         yield return new WaitForSeconds(gameOverDelay);
         SceneManager.LoadScene("Game Over");
     }
-    
+
+    public void LoadWinScreen()
+    {
+        StartCoroutine(WinScreen());
+    }
+    private IEnumerator WinScreen()
+    {
+        yield return new WaitForSeconds(gameOverDelay);
+        SceneManager.LoadScene("Win Scene");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

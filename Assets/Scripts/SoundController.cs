@@ -45,6 +45,16 @@ public class SoundController : MonoBehaviour
         AudioSource.PlayClipAtPoint(enemyDeathSFX, Camera.main.transform.position, enemyDeathSFXVolume);
     }
 
+    public IEnumerator BossDeath()
+    {
+        Debug.Log("Boom!");
+        for (int i = 3; i > 0; i--)
+        {
+            AudioSource.PlayClipAtPoint(enemyDeathSFX, Camera.main.transform.position, enemyDeathSFXVolume);
+            yield return new WaitForSeconds(enemyDeathSFX.length);
+        }
+    }
+
     public void PlayerShot()
     {
         AudioSource.PlayClipAtPoint(playerShootSound, Camera.main.transform.position, playerShootSoundVolume);
@@ -63,5 +73,10 @@ public class SoundController : MonoBehaviour
     public void PowerUp()
     {
         AudioSource.PlayClipAtPoint(powerUpSFX, Camera.main.transform.position, powerUpSFXVolume);
+    }
+
+    public void BossDeathTrigger()
+    {
+        StartCoroutine(BossDeath());
     }
 }

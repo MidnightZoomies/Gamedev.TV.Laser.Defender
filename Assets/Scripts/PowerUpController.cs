@@ -12,6 +12,7 @@ public class PowerUpController : MonoBehaviour
     Shield shield;
     [SerializeField] List<GameObject> powerUps;
     [SerializeField] int powerUpChanceMeasure;
+    [SerializeField] int asteroidPowerUpMeasure;
     float powerUpSpeed = -1f;
     int powerUpTypeRandom;
     int powerUpTypeRandomMax;
@@ -56,6 +57,17 @@ public class PowerUpController : MonoBehaviour
         if (powerUpChanceRandom <= powerUpChanceMeasure)
         {
             powerUpTypeRandom = Random.Range(0, powerUpTypeRandomMax);
+            GameObject powerUpInstance = Instantiate(powerUps[powerUpTypeRandom], obj, Quaternion.identity);
+            powerUpInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, powerUpSpeed);
+        }
+    }
+
+    public void PowerUpAsteroid(Vector3 obj)
+    {
+        powerUpChanceRandom = Random.Range(0, 101);
+        if (powerUpChanceRandom <= asteroidPowerUpMeasure)
+        {
+            powerUpTypeRandom = Random.Range(0, powerUpTypeRandomMax - 1);
             GameObject powerUpInstance = Instantiate(powerUps[powerUpTypeRandom], obj, Quaternion.identity);
             powerUpInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(0, powerUpSpeed);
         }

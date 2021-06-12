@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22d8ff67d7997d544978b2fadc76ea88, type: 3}
-  m_Name: Boss1
+  m_Name: Tough Wave 1
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7317654991751265301, guid: 831f3b181907bbe4b8d18c0398ebffe8,
+  enemyPrefab: {fileID: 4903564125814450950, guid: 013b7fc8f6049934d8857e65f30af270,
     type: 3}
-  pathPrefab: {fileID: 2484079507514338374, guid: 1ee7eb7026adf584987bc1d065da0f7e,
+  pathPrefab: {fileID: 2484079507514338374, guid: 4d30484fa58a17849b2a57915e58ea80,
     type: 3}
   timeBetweenSpawns: 2
   spawnRandomFactor: 0.3
-  numberOfEnemies: 1
+  numberOfEnemies: 3
   moveSpeed: 2

@@ -183,11 +183,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4195354586775685765, guid: ee7475b1b873495429f68016e9474f6d,
-        type: 3}
-      propertyPath: powerUpChanceMeasure
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7479913920162828980, guid: ee7475b1b873495429f68016e9474f6d,
         type: 3}
       propertyPath: m_Name

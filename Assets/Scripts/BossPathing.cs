@@ -8,6 +8,7 @@ public class BossPathing : MonoBehaviour
     List<Transform> waypoints;
     int waypointIndex = 0;
     int startingWayPoints = 1;
+    float enrageLevel = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class BossPathing : MonoBehaviour
     private void Move()
     {
         var targetPosition = waypoints[waypointIndex].transform.position;
-        var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
+        var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime * enrageLevel;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
         if (transform.position == targetPosition)
         {
@@ -43,5 +44,9 @@ public class BossPathing : MonoBehaviour
                 waypointIndex--;
             }
         }
+    }
+    public void BossPartDestroyed()
+    {
+        enrageLevel += 0.25f;
     }
 }

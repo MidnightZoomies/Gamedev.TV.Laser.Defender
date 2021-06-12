@@ -4,7 +4,114 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+
     [Header("Min/Max List Size")]
+    [SerializeField] int waveRandomMin = 0;
+    [SerializeField] int waveRandomMax = 5;
+    int waveRandom;
+
+    [Header("Toggle Looping")]
+    [SerializeField] bool looping = true;
+
+    [Header("Waves")]
+    [SerializeField] List<WaveConfig> slowWaveConfigs;
+    [SerializeField] List<WaveConfig> fastWaveConfigs;
+    [SerializeField] List<WaveConfig> toughWaveConfigs;
+    [SerializeField] WaveConfig miniBossWaveConfig;
+    [SerializeField] WaveConfig bossWaveConfig;
+
+    [Header("Wave Variables")]
+    int toughWaveCountDown = 1;
+    int bossCountDown = 1;
+    [SerializeField] int toughWaveRate = 3;
+    [SerializeField] int bossRate = 20;
+    [SerializeField] int bossRateDefault = 20;
+    int toughWaveRandom;
+    int fastWaveRandom;
+    int slowWaveRandom;
+    [SerializeField] float spawnDelay = 2f;
+    [SerializeField] float spawnDelayMin = 0f;
+    [SerializeField] float spawnDelayMax = 5f;
+    bool miniBossDefeated = false;
+    [SerializeField]
+    float bossSpawnDelay = 10f;
+
+    private void Start()
+    {
+        StartCoroutine(SpawnLooping());
+    }
+
+    private IEnumerator SpawnLooping()
+    {
+        do
+        {
+            yield return StartCoroutine(SpawnWaves());
+            toughWaveCountDown++;
+            bossCountDown++;
+            if (bossCountDown >= bossRate && miniBossDefeated == false)
+            {
+                bossRate = 10000;
+                StartCoroutine(SpawnBoss(miniBossWaveConfig));
+            }
+            else if (bossCountDown >= bossRate && miniBossDefeated == true)
+            {
+                StopWaves();
+                StartCoroutine(SpawnBoss(bossWaveConfig));
+            }
+        }
+        while (looping);
+    }
+
+    private IEnumerator SpawnWaves()
+    {
+        slowWaveRandom = Random.Range(waveRandomMin, waveRandomMax);
+        fastWaveRandom = Random.Range(waveRandomMin, waveRandomMax);
+        var currentSlowWave = slowWaveConfigs[slowWaveRandom];
+        var currentFastWave = fastWaveConfigs[fastWaveRandom];
+        spawnDelay = Random.Range(spawnDelayMin, spawnDelayMax);
+        StartCoroutine(SpawnAllEnemiesInWave(currentSlowWave));
+        yield return new WaitForSeconds(spawnDelay);
+        yield return StartCoroutine(SpawnAllEnemiesInWave(currentFastWave));
+        if (toughWaveCountDown >= toughWaveRate)
+        {
+            //yield return new WaitForSeconds(spawnDelay); Add if needed
+            toughWaveRandom = Random.Range(waveRandomMin, waveRandomMax);
+            var currentToughWave = toughWaveConfigs[toughWaveRandom];
+            StartCoroutine(SpawnAllEnemiesInWave(currentToughWave));
+            toughWaveCountDown = 0; //change to 1?
+        }
+    }
+
+    private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
+    {
+        for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++)
+        {
+            var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
+            newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+            yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
+        }
+    }
+
+    private IEnumerator SpawnBoss(WaveConfig waveConfig)
+    {
+        yield return new WaitForSeconds(bossSpawnDelay);
+        var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
+        newEnemy.GetComponent<BossPathing>().SetWaveConfig(waveConfig);
+    }
+
+    public void StopWaves()
+    {
+        looping = false;
+    }
+
+    public void MiniBossDeath()
+    {
+        bossRate = bossRateDefault;
+        miniBossDefeated = true;
+        bossCountDown = 1;
+    }
+}
+    /*[Header("Min/Max List Size")]
     [SerializeField] int waveRandomMin = 0;
     [SerializeField] int waveRandomMax = 5;
     int waveRandom;
@@ -113,7 +220,7 @@ public class EnemySpawner : MonoBehaviour
         {
         looping = false;
         //may need a new method to restart the waves.
-        }
+        }*/
 
 
 
@@ -194,4 +301,3 @@ public class EnemySpawner : MonoBehaviour
 
 
     }*/
-}

@@ -99,9 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 500
   healthPowerUp: 500
-  moveSpeed: 15
-  padding: 0.5
   playerLaser: {fileID: 8598264013166933430, guid: 7aa752b5cfd9d404c8cc12c88fdca259,
+    type: 3}
+  spreadLaser: {fileID: 8598264013166933430, guid: 6e319ea92ae74914cbe55678d7eeb09b,
     type: 3}
   laserSpeed: 20
   projectileFiringPeriod: 0.1

@@ -12,6 +12,8 @@ TagManager:
   - Shield
   - MultiShipLeft
   - MultiShipRight
+  - Boss
+  - Boss Part
   layers:
   - Default
   - TransparentFX
