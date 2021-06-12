@@ -25,12 +25,15 @@ public class Boss : MonoBehaviour
     [SerializeField] int enemyScore = 100;
 
     Level level;
+    PowerUpController powerUpController;
 
     void Start()
     {
         soundController = FindObjectOfType<SoundController>();
         gameSession = FindObjectOfType<GameSession>();
         level = FindObjectOfType<Level>();
+        powerUpController = FindObjectOfType<PowerUpController>();
+        powerUpController.IncreaseAsteroidDrops();
     }
 
     // Update is called once per frame

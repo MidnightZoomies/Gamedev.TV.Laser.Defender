@@ -47,7 +47,6 @@ public class SoundController : MonoBehaviour
 
     public IEnumerator BossDeath()
     {
-        Debug.Log("Boom!");
         for (int i = 3; i > 0; i--)
         {
             AudioSource.PlayClipAtPoint(enemyDeathSFX, Camera.main.transform.position, enemyDeathSFXVolume);

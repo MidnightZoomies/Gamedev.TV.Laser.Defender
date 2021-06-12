@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7277740835285777780}
   - component: {fileID: -4176757617321869344}
   m_Layer: 0
-  m_Name: Player Laser
+  m_Name: Spread Laser
   m_TagString: PlayerLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1693ec550a6f5774c852ecf650ed3e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50

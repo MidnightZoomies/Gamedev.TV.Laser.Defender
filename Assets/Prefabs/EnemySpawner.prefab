@@ -53,17 +53,18 @@ MonoBehaviour:
   fastWaveConfigs:
   - {fileID: 11400000, guid: a6abed1dd4cce5e4b8e9372c1cf5979f, type: 2}
   - {fileID: 11400000, guid: fc1a4d00c4da2744fb3ffb201c9e5674, type: 2}
-  - {fileID: 11400000, guid: fc1a4d00c4da2744fb3ffb201c9e5674, type: 2}
+  - {fileID: 11400000, guid: 25dec60b00af0714f98285624a7d6c7e, type: 2}
   toughWaveConfigs:
   - {fileID: 11400000, guid: a80bbbde71f4c27469a889dc16fa4d5d, type: 2}
-  - {fileID: 11400000, guid: a80bbbde71f4c27469a889dc16fa4d5d, type: 2}
-  - {fileID: 11400000, guid: a80bbbde71f4c27469a889dc16fa4d5d, type: 2}
+  - {fileID: 11400000, guid: 8ab74a96b8ca34f4a94d8ed891106e72, type: 2}
+  - {fileID: 11400000, guid: a95f8f28eae87c645aaf6e38d7c64630, type: 2}
   miniBossWaveConfig: {fileID: 11400000, guid: b91be5c4f902f5a4b89174f3ffa16cb1, type: 2}
   bossWaveConfig: {fileID: 11400000, guid: 5ceb8945f647ec941981a8fb92ce9af3, type: 2}
-  toughWaveRate: 3
-  bossRate: 2
-  bossRateDefault: 2
+  toughWaveRate: 6
+  bossRate: 15
+  bossRateDefault: 10
   spawnDelay: 2
   spawnDelayMin: 1
   spawnDelayMax: 5
   bossSpawnDelay: 5
+  startWait: 5

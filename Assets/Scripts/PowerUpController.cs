@@ -13,6 +13,7 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] List<GameObject> powerUps;
     [SerializeField] int powerUpChanceMeasure;
     [SerializeField] int asteroidPowerUpMeasure;
+    [SerializeField] int asteroidBossDropRate;
     float powerUpSpeed = -1f;
     int powerUpTypeRandom;
     int powerUpTypeRandomMax;
@@ -122,5 +123,10 @@ public class PowerUpController : MonoBehaviour
         {
             Instantiate(weaponController, transform.position, transform.rotation);
         }
+    }
+
+    public void IncreaseAsteroidDrops()
+    {
+        asteroidPowerUpMeasure = asteroidBossDropRate;
     }
 }

@@ -135,7 +135,7 @@ MonoBehaviour:
   explosionFX: {fileID: 5542584858379185628, guid: 53a6f65046ca1164d9d71f33492b3450,
     type: 3}
   explosionDuration: 1
-  enemyScore: 50
+  enemyScore: 200
 --- !u!50 &5650425635746347351
 Rigidbody2D:
   serializedVersion: 4

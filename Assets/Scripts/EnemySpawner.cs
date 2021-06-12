@@ -33,8 +33,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnDelayMin = 0f;
     [SerializeField] float spawnDelayMax = 5f;
     bool miniBossDefeated = false;
-    [SerializeField]
-    float bossSpawnDelay = 10f;
+    [SerializeField] float bossSpawnDelay = 10f;
+    [SerializeField] float startWait = 5f;
 
     private void Start()
     {
@@ -43,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnLooping()
     {
+        yield return new WaitForSeconds(startWait);
         do
         {
             yield return StartCoroutine(SpawnWaves());
